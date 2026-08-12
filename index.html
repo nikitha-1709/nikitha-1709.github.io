@@ -1,5 +1,475 @@
-<html>
-  <body>
-    <h1>Hello World</h1>
-  </body>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikitha | CSE Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f5f5;
+      color: #111;
+      line-height: 1.5;
+    }
+
+    /* NAVBAR */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      border-bottom: 4px solid #111;
+      background: #ffde00;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      border: 3px solid #111;
+      padding: 5px 12px;
+      background: white;
+      box-shadow: 5px 5px 0 #111;
+    }
+
+    nav a {
+      color: #111;
+      text-decoration: none;
+      font-weight: 800;
+      margin-left: 20px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 70px 8%;
+      background: #ff5c5c;
+      border-bottom: 5px solid #111;
+    }
+
+    .hero-text {
+      max-width: 750px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #111;
+      color: white;
+      padding: 8px 15px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 9vw, 120px);
+      line-height: 0.9;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -6px;
+      text-shadow: 7px 7px 0 white;
+    }
+
+    .hero p {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 30px 0;
+      max-width: 650px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #111;
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+      font-weight: 900;
+      border: 3px solid #111;
+      box-shadow: 7px 7px 0 white;
+    }
+
+    .button:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 3px 3px 0 white;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 8%;
+      border-bottom: 5px solid #111;
+    }
+
+    .section-title {
+      font-size: 55px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      letter-spacing: -3px;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #fff;
+    }
+
+    .about-box {
+      max-width: 900px;
+      border: 5px solid #111;
+      padding: 30px;
+      background: #8cff98;
+      box-shadow: 12px 12px 0 #111;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* SKILLS */
+    .skills {
+      background: #00d9ff;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .skill {
+      background: white;
+      border: 4px solid #111;
+      padding: 25px;
+      font-size: 22px;
+      font-weight: 900;
+      box-shadow: 7px 7px 0 #111;
+    }
+
+    .skill:hover {
+      transform: translate(5px, 5px);
+      box-shadow: 2px 2px 0 #111;
+    }
+
+    /* PROJECTS */
+    .projects {
+      background: #ffde00;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project {
+      background: white;
+      border: 5px solid #111;
+      padding: 25px;
+      box-shadow: 10px 10px 0 #111;
+    }
+
+    .project h3 {
+      font-size: 30px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .project p {
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .project a {
+      color: #111;
+      font-weight: 900;
+    }
+
+    /* EDUCATION */
+    .education {
+      background: #b47cff;
+    }
+
+    .education-box {
+      border: 5px solid #111;
+      background: white;
+      padding: 30px;
+      box-shadow: 10px 10px 0 #111;
+      max-width: 800px;
+    }
+
+    .education-box h3 {
+      font-size: 30px;
+      text-transform: uppercase;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #ff7eb6;
+    }
+
+    .contact-box {
+      display: grid;
+      gap: 15px;
+      max-width: 700px;
+    }
+
+    .contact-box a {
+      display: block;
+      color: #111;
+      text-decoration: none;
+      background: white;
+      border: 4px solid #111;
+      padding: 18px;
+      font-size: 20px;
+      font-weight: 900;
+      box-shadow: 6px 6px 0 #111;
+    }
+
+    .contact-box a:hover {
+      transform: translate(4px, 4px);
+      box-shadow: 2px 2px 0 #111;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      font-weight: bold;
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin: 0 7px;
+      }
+
+      .hero {
+        padding: 60px 6%;
+      }
+
+      h1 {
+        font-size: 65px;
+        letter-spacing: -3px;
+      }
+
+      .section-title {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo">NK.</div>
+
+    <div>
+      <a href="#about">ABOUT</a>
+      <a href="#skills">SKILLS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-text">
+
+      <span class="tag">BTECH CSE STUDENT</span>
+
+      <h1>NIKITHA<br>K.</h1>
+
+      <p>
+        I am a Computer Science student who loves building websites,
+        exploring AI, learning programming and turning ideas into
+        useful digital products.
+      </p>
+
+      <a class="button" href="#projects">
+        VIEW MY WORK →
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <h2 class="section-title">ABOUT ME_</h2>
+
+    <div class="about-box">
+      <p>
+        Hello! I'm Nikitha, a B.Tech Computer Science and Engineering
+        student. I am interested in web development, artificial
+        intelligence, programming and UI design.
+      </p>
+
+      <br>
+
+      <p>
+        Currently, I am improving my skills in C, Python, Data Structures,
+        web development and AI/ML while working on different projects
+        and learning through hands-on experience.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+
+    <h2 class="section-title">MY SKILLS_</h2>
+
+    <div class="skill-grid">
+
+      <div class="skill">C</div>
+      <div class="skill">PYTHON</div>
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JAVASCRIPT</div>
+      <div class="skill">DATA STRUCTURES</div>
+      <div class="skill">GITHUB</div>
+      <div class="skill">UI / UX</div>
+      <div class="skill">AI / ML</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+
+    <h2 class="section-title">PROJECTS_</h2>
+
+    <div class="project-grid">
+
+      <div class="project">
+        <h3>KissanMithra</h3>
+
+        <p>
+          An AI-powered agriculture platform designed to help farmers
+          with crop intelligence, disease detection, weather,
+          irrigation and market information.
+        </p>
+
+        <a href="#" target="_blank">VIEW PROJECT →</a>
+      </div>
+
+
+      <div class="project">
+        <h3>Healthcare Website</h3>
+
+        <p>
+          A responsive healthcare website created using HTML, CSS
+          and JavaScript with a clean and accessible user interface.
+        </p>
+
+        <a href="#" target="_blank">VIEW PROJECT →</a>
+      </div>
+
+
+      <div class="project">
+        <h3>Power BI Dashboard</h3>
+
+        <p>
+          A data analysis dashboard for understanding mental health
+          treatment patterns using Power BI and data visualization.
+        </p>
+
+        <a href="#" target="_blank">VIEW PROJECT →</a>
+      </div>
+
+
+      <div class="project">
+        <h3>DSA Programs</h3>
+
+        <p>
+          Collection of C programming implementations covering sorting,
+          searching, linked lists, stacks, queues, trees and graphs.
+        </p>
+
+        <a href="#" target="_blank">GITHUB →</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EDUCATION -->
+  <section class="education">
+
+    <h2 class="section-title">EDUCATION_</h2>
+
+    <div class="education-box">
+
+      <h3>B.Tech Computer Science & Engineering</h3>
+
+      <p>
+        <strong>Currently Pursuing</strong>
+      </p>
+
+      <p>
+        Focus areas: Programming, Data Structures, Web Development,
+        Artificial Intelligence and Machine Learning.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <h2 class="section-title">CONTACT_</h2>
+
+    <div class="contact-box">
+
+      <a href="mailto:yourmail@example.com">
+        EMAIL → yourmail@example.com
+      </a>
+
+      <a href="https://github.com/" target="_blank">
+        GITHUB → @yourusername
+      </a>
+
+      <a href="https://www.linkedin.com/" target="_blank">
+        LINKEDIN → CONNECT WITH ME
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 NIKITHA K. — BUILT WITH HTML & CSS.
+  </footer>
+
+</body>
 </html>
