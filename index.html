@@ -1,276 +1,715 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nikitha | CSE Portfolio</title>
+
+  <title>Nikitha K. | CSE Portfolio</title>
 
   <style>
+    /* =========================
+       RESET
+    ========================= */
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f5f5;
-      color: #111;
-      line-height: 1.5;
+    html {
+      scroll-behavior: smooth;
     }
 
-    /* NAVBAR */
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f0e8;
+      color: #111111;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: #b7ff00;
+      color: #111;
+    }
+
+    /* =========================
+       VARIABLES
+    ========================= */
+
+    :root {
+      --black: #111111;
+      --cream: #f4f0e8;
+      --purple: #8b5cf6;
+      --lime: #b7ff00;
+      --blue: #4deeea;
+      --pink: #ff4ecd;
+      --white: #ffffff;
+      --border: 4px solid #111111;
+      --shadow: 8px 8px 0 #111111;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
     nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 5%;
-      border-bottom: 4px solid #111;
-      background: #ffde00;
+
+      padding: 18px 5%;
+
+      background: var(--cream);
+      border-bottom: var(--border);
     }
 
     .logo {
       font-size: 28px;
-      font-weight: 900;
-      border: 3px solid #111;
+      font-weight: 1000;
+
+      background: var(--lime);
+      border: var(--border);
       padding: 5px 12px;
-      background: white;
-      box-shadow: 5px 5px 0 #111;
+
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
     }
 
     nav a {
-      color: #111;
+      color: var(--black);
       text-decoration: none;
-      font-weight: 800;
-      margin-left: 20px;
+      font-weight: 900;
+      font-size: 14px;
+      position: relative;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 3px;
+      background: var(--purple);
+      transition: 0.25s;
     }
 
-    /* HERO */
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
-      min-height: 85vh;
+      min-height: 90vh;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 40px;
-      padding: 70px 8%;
-      background: #ff5c5c;
-      border-bottom: 5px solid #111;
-    }
 
-    .hero-text {
-      max-width: 750px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #111;
-      color: white;
-      padding: 8px 15px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      font-size: clamp(55px, 9vw, 120px);
-      line-height: 0.9;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -6px;
-      text-shadow: 7px 7px 0 white;
-    }
-
-    .hero p {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 30px 0;
-      max-width: 650px;
-    }
-
-    .button {
-      display: inline-block;
-      background: #111;
-      color: white;
-      padding: 15px 25px;
-      text-decoration: none;
-      font-weight: 900;
-      border: 3px solid #111;
-      box-shadow: 7px 7px 0 white;
-    }
-
-    .button:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 3px 3px 0 white;
-    }
-
-    /* SECTIONS */
-    section {
+      gap: 50px;
       padding: 80px 8%;
-      border-bottom: 5px solid #111;
+
+      background:
+        radial-gradient(circle at 85% 20%, var(--lime) 0 8%, transparent 8.5%),
+        radial-gradient(circle at 90% 80%, var(--blue) 0 7%, transparent 7.5%),
+        var(--purple);
+
+      border-bottom: var(--border);
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "CREATIVE • CODE • AI • DESIGN • ";
+
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+
+      font-size: 20px;
+      font-weight: 1000;
+
+      white-space: nowrap;
+
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .status {
+      display: inline-block;
+
+      background: var(--lime);
+      border: var(--border);
+
+      padding: 8px 15px;
+
+      font-weight: 1000;
+      font-size: 14px;
+
+      box-shadow: 6px 6px 0 var(--black);
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(65px, 11vw, 145px);
+
+      line-height: 0.82;
+
+      letter-spacing: -8px;
+
+      text-transform: uppercase;
+
+      font-weight: 1000;
+
+      color: var(--cream);
+
+      text-shadow:
+        8px 8px 0 var(--black);
+    }
+
+    .hero h1 span {
+      color: var(--lime);
+    }
+
+    .hero-description {
+      max-width: 650px;
+
+      margin-top: 35px;
+
+      font-size: 21px;
+      font-weight: 700;
+
+      background: var(--white);
+
+      border: var(--border);
+
+      padding: 20px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 15px 25px;
+
+      border: var(--border);
+
+      text-decoration: none;
+
+      font-weight: 1000;
+
+      color: var(--black);
+
+      background: var(--lime);
+
+      box-shadow: var(--shadow);
+
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      transform: translate(5px, 5px);
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .btn-dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* =========================
+       FLOATING SHAPE
+    ========================= */
+
+    .hero-shape {
+      width: 280px;
+      height: 280px;
+
+      background: var(--lime);
+
+      border: 6px solid var(--black);
+
+      transform: rotate(8deg);
+
+      box-shadow: 15px 15px 0 var(--black);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 110px;
+
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: rotate(8deg) translateY(0);
+      }
+
+      50% {
+        transform: rotate(-5deg) translateY(-20px);
+      }
+    }
+
+    /* =========================
+       COMMON SECTION
+    ========================= */
+
+    section {
+      padding: 100px 8%;
+      border-bottom: var(--border);
+    }
+
+    .section-label {
+      font-size: 14px;
+      font-weight: 1000;
+      letter-spacing: 2px;
+
+      margin-bottom: 15px;
     }
 
     .section-title {
-      font-size: 55px;
-      font-weight: 900;
+      font-size: clamp(45px, 7vw, 85px);
+
+      line-height: 0.9;
+
+      letter-spacing: -5px;
+
       text-transform: uppercase;
-      margin-bottom: 40px;
-      letter-spacing: -3px;
+
+      font-weight: 1000;
+
+      margin-bottom: 50px;
     }
 
-    /* ABOUT */
+    /* =========================
+       ABOUT
+    ========================= */
+
     .about {
-      background: #fff;
+      background: var(--cream);
     }
 
-    .about-box {
-      max-width: 900px;
-      border: 5px solid #111;
-      padding: 30px;
-      background: #8cff98;
-      box-shadow: 12px 12px 0 #111;
-      font-size: 20px;
-      font-weight: bold;
+    .about-grid {
+      display: grid;
+
+      grid-template-columns: 1.5fr 1fr;
+
+      gap: 35px;
     }
 
-    /* SKILLS */
+    .about-card {
+      border: var(--border);
+
+      background: var(--white);
+
+      padding: 35px;
+
+      box-shadow: var(--shadow);
+    }
+
+    .about-card.large {
+      background: var(--blue);
+    }
+
+    .about-card h3 {
+      font-size: 35px;
+      margin-bottom: 20px;
+      font-weight: 1000;
+    }
+
+    .about-card p {
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .mini-card {
+      border: var(--border);
+
+      background: var(--lime);
+
+      padding: 25px;
+
+      box-shadow: var(--shadow);
+
+      margin-bottom: 25px;
+    }
+
+    .mini-card:last-child {
+      margin-bottom: 0;
+      background: var(--pink);
+    }
+
+    .mini-card h3 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
     .skills {
-      background: #00d9ff;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .skills .section-title {
+      color: var(--lime);
     }
 
     .skill-grid {
       display: grid;
+
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
       gap: 20px;
     }
 
     .skill {
-      background: white;
-      border: 4px solid #111;
+      background: var(--cream);
+
+      color: var(--black);
+
+      border: var(--border);
+
       padding: 25px;
-      font-size: 22px;
-      font-weight: 900;
-      box-shadow: 7px 7px 0 #111;
+
+      min-height: 120px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      font-size: 23px;
+
+      font-weight: 1000;
+
+      box-shadow: 7px 7px 0 var(--purple);
+
+      transition: 0.2s;
     }
 
     .skill:hover {
-      transform: translate(5px, 5px);
-      box-shadow: 2px 2px 0 #111;
+      background: var(--lime);
+      transform: rotate(-2deg) translateY(-5px);
     }
 
-    /* PROJECTS */
+    /* =========================
+       PROJECTS
+    ========================= */
+
     .projects {
-      background: #ffde00;
+      background: var(--lime);
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 35px;
     }
 
     .project {
-      background: white;
-      border: 5px solid #111;
-      padding: 25px;
-      box-shadow: 10px 10px 0 #111;
+      background: var(--white);
+
+      border: var(--border);
+
+      padding: 30px;
+
+      box-shadow: 10px 10px 0 var(--black);
+
+      transition: 0.25s;
+
+      position: relative;
+    }
+
+    .project:hover {
+      transform: translate(-5px, -5px);
+      box-shadow: 15px 15px 0 var(--black);
+    }
+
+    .project-number {
+      position: absolute;
+
+      right: 20px;
+      top: 15px;
+
+      font-size: 50px;
+
+      font-weight: 1000;
+
+      opacity: 0.15;
     }
 
     .project h3 {
-      font-size: 30px;
-      margin-bottom: 15px;
+      font-size: 34px;
+
       text-transform: uppercase;
+
+      margin-bottom: 15px;
     }
 
     .project p {
       font-size: 17px;
-      margin-bottom: 20px;
+
+      font-weight: 600;
+
+      margin-bottom: 25px;
     }
 
-    .project a {
-      color: #111;
-      font-weight: 900;
+    .project-tag {
+      display: inline-block;
+
+      padding: 7px 12px;
+
+      border: 3px solid var(--black);
+
+      background: var(--purple);
+
+      color: white;
+
+      font-size: 12px;
+
+      font-weight: 1000;
+
+      margin-right: 5px;
     }
 
-    /* EDUCATION */
+    .project-link {
+      display: block;
+
+      margin-top: 25px;
+
+      color: var(--black);
+
+      font-weight: 1000;
+
+      text-decoration: underline;
+    }
+
+    /* =========================
+       EDUCATION
+    ========================= */
+
     .education {
-      background: #b47cff;
+      background: var(--blue);
     }
 
     .education-box {
-      border: 5px solid #111;
-      background: white;
-      padding: 30px;
-      box-shadow: 10px 10px 0 #111;
-      max-width: 800px;
+      background: var(--white);
+
+      border: var(--border);
+
+      padding: 40px;
+
+      max-width: 900px;
+
+      box-shadow: var(--shadow);
     }
 
     .education-box h3 {
-      font-size: 30px;
+      font-size: 35px;
+
       text-transform: uppercase;
+
+      margin-bottom: 15px;
     }
 
-    /* CONTACT */
+    .education-box p {
+      font-size: 18px;
+
+      font-weight: 600;
+
+      margin-bottom: 10px;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact {
-      background: #ff7eb6;
+      background: var(--pink);
     }
 
-    .contact-box {
+    .contact-grid {
       display: grid;
-      gap: 15px;
-      max-width: 700px;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 30px;
     }
 
-    .contact-box a {
-      display: block;
-      color: #111;
+    .contact-intro {
+      font-size: 22px;
+
+      font-weight: 700;
+
+      max-width: 500px;
+    }
+
+    .contact-links {
+      display: grid;
+
+      gap: 18px;
+    }
+
+    .contact-link {
+      background: var(--white);
+
+      color: var(--black);
+
       text-decoration: none;
-      background: white;
-      border: 4px solid #111;
-      padding: 18px;
-      font-size: 20px;
-      font-weight: 900;
-      box-shadow: 6px 6px 0 #111;
+
+      border: var(--border);
+
+      padding: 20px;
+
+      font-size: 18px;
+
+      font-weight: 1000;
+
+      box-shadow: 6px 6px 0 var(--black);
+
+      transition: 0.2s;
     }
 
-    .contact-box a:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 2px 2px 0 #111;
+    .contact-link:hover {
+      transform: translate(5px, 5px);
+      box-shadow: 2px 2px 0 var(--black);
+      background: var(--lime);
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      font-weight: bold;
+      background: var(--black);
+
+      color: var(--cream);
+
+      padding: 35px 8%;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      font-size: 14px;
+
+      font-weight: 800;
     }
 
-    /* MOBILE */
-    @media (max-width: 700px) {
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 800px) {
+
       nav {
         flex-direction: column;
         gap: 15px;
       }
 
-      nav a {
-        margin: 0 7px;
+      nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .hero {
-        padding: 60px 6%;
+        min-height: auto;
+        padding: 80px 6%;
       }
 
-      h1 {
-        font-size: 65px;
-        letter-spacing: -3px;
+      .hero-shape {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 70px;
+        letter-spacing: -4px;
+      }
+
+      .about-grid,
+      .project-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 6%;
       }
 
       .section-title {
-        font-size: 42px;
+        letter-spacing: -3px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .hero h1 {
+        font-size: 58px;
+      }
+
+      .hero-description {
+        font-size: 17px;
+      }
+
+      .section-title {
+        font-size: 45px;
       }
     }
   </style>
@@ -278,162 +717,331 @@
 
 <body>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <div class="logo">NK.</div>
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
 
-    <div>
-      <a href="#about">ABOUT</a>
-      <a href="#skills">SKILLS</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#contact">CONTACT</a>
+  <nav>
+
+    <div class="logo">
+      NK.
     </div>
+
+    <ul>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#projects">WORK</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
   </nav>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================== -->
+
   <header class="hero">
-    <div class="hero-text">
 
-      <span class="tag">BTECH CSE STUDENT</span>
+    <div class="hero-content">
 
-      <h1>NIKITHA<br>K.</h1>
+      <span class="status">
+        ● AVAILABLE FOR OPPORTUNITIES
+      </span>
 
-      <p>
-        I am a Computer Science student who loves building websites,
-        exploring AI, learning programming and turning ideas into
-        useful digital products.
-      </p>
+      <h1>
+        NIKITHA<br>
+        <span>K.</span>
+      </h1>
 
-      <a class="button" href="#projects">
-        VIEW MY WORK →
-      </a>
+      <div class="hero-description">
+
+        Computer Science student building
+        <strong>web experiences, AI projects</strong>
+        and digital products.
+
+      </div>
+
+      <div class="hero-buttons">
+
+        <a href="#projects" class="btn">
+          EXPLORE MY WORK →
+        </a>
+
+        <a href="#contact" class="btn btn-dark">
+          LET'S TALK ↗
+        </a>
+
+      </div>
 
     </div>
+
+
+    <div class="hero-shape">
+      &lt;/&gt;
+    </div>
+
   </header>
 
 
-  <!-- ABOUT -->
+  <!-- =========================
+       ABOUT
+  ========================== -->
+
   <section class="about" id="about">
 
-    <h2 class="section-title">ABOUT ME_</h2>
+    <div class="section-label">
+      01 — WHO AM I?
+    </div>
 
-    <div class="about-box">
-      <p>
-        Hello! I'm Nikitha, a B.Tech Computer Science and Engineering
-        student. I am interested in web development, artificial
-        intelligence, programming and UI design.
-      </p>
+    <h2 class="section-title">
+      ABOUT ME_
+    </h2>
 
-      <br>
+    <div class="about-grid">
 
-      <p>
-        Currently, I am improving my skills in C, Python, Data Structures,
-        web development and AI/ML while working on different projects
-        and learning through hands-on experience.
-      </p>
+      <div class="about-card large">
+
+        <h3>
+          BUILDING. LEARNING. EXPERIMENTING.
+        </h3>
+
+        <p>
+          I'm Nikitha, a B.Tech Computer Science and
+          Engineering student interested in technology,
+          design and artificial intelligence.
+        </p>
+
+        <br>
+
+        <p>
+          I enjoy turning ideas into real projects,
+          experimenting with new technologies and
+          continuously improving my programming skills.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <div class="mini-card">
+
+          <h3>01 / CSE STUDENT</h3>
+
+          <p>
+            Currently pursuing B.Tech in
+            Computer Science & Engineering.
+          </p>
+
+        </div>
+
+
+        <div class="mini-card">
+
+          <h3>02 / BUILDER</h3>
+
+          <p>
+            Interested in websites,
+            AI applications and creative technology.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
 
   </section>
 
 
-  <!-- SKILLS -->
+  <!-- =========================
+       SKILLS
+  ========================== -->
+
   <section class="skills" id="skills">
 
-    <h2 class="section-title">MY SKILLS_</h2>
+    <div class="section-label">
+      02 — WHAT I KNOW
+    </div>
+
+    <h2 class="section-title">
+      SKILLS_
+    </h2>
 
     <div class="skill-grid">
 
-      <div class="skill">C</div>
+      <div class="skill">C PROGRAMMING</div>
+
       <div class="skill">PYTHON</div>
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
+
+      <div class="skill">HTML / CSS</div>
+
       <div class="skill">JAVASCRIPT</div>
+
       <div class="skill">DATA STRUCTURES</div>
+
       <div class="skill">GITHUB</div>
-      <div class="skill">UI / UX</div>
+
       <div class="skill">AI / ML</div>
+
+      <div class="skill">UI / UX</div>
 
     </div>
 
   </section>
 
 
-  <!-- PROJECTS -->
+  <!-- =========================
+       PROJECTS
+  ========================== -->
+
   <section class="projects" id="projects">
 
-    <h2 class="section-title">PROJECTS_</h2>
+    <div class="section-label">
+      03 — SELECTED WORK
+    </div>
+
+    <h2 class="section-title">
+      PROJECTS_
+    </h2>
+
 
     <div class="project-grid">
 
-      <div class="project">
-        <h3>KissanMithra</h3>
+
+      <article class="project">
+
+        <span class="project-number">01</span>
+
+        <h3>
+          KissanMithra
+        </h3>
 
         <p>
-          An AI-powered agriculture platform designed to help farmers
-          with crop intelligence, disease detection, weather,
-          irrigation and market information.
+          An AI-powered agriculture platform designed
+          to help farmers with crop intelligence,
+          disease detection, weather information,
+          irrigation and market insights.
         </p>
 
-        <a href="#" target="_blank">VIEW PROJECT →</a>
-      </div>
+        <span class="project-tag">AI</span>
+        <span class="project-tag">AGRICULTURE</span>
+        <span class="project-tag">WEB</span>
+
+        <a href="#" class="project-link">
+          VIEW PROJECT →
+        </a>
+
+      </article>
 
 
-      <div class="project">
-        <h3>Healthcare Website</h3>
+      <article class="project">
+
+        <span class="project-number">02</span>
+
+        <h3>
+          Healthcare Website
+        </h3>
 
         <p>
-          A responsive healthcare website created using HTML, CSS
-          and JavaScript with a clean and accessible user interface.
+          A responsive healthcare website created
+          using modern HTML, CSS and JavaScript
+          with a focus on usability and accessibility.
         </p>
 
-        <a href="#" target="_blank">VIEW PROJECT →</a>
-      </div>
+        <span class="project-tag">HTML</span>
+        <span class="project-tag">CSS</span>
+        <span class="project-tag">JS</span>
+
+        <a href="#" class="project-link">
+          VIEW PROJECT →
+        </a>
+
+      </article>
 
 
-      <div class="project">
-        <h3>Power BI Dashboard</h3>
+      <article class="project">
+
+        <span class="project-number">03</span>
+
+        <h3>
+          Power BI Dashboard
+        </h3>
 
         <p>
-          A data analysis dashboard for understanding mental health
-          treatment patterns using Power BI and data visualization.
+          Interactive data visualization dashboard
+          analyzing mental health workplace survey
+          data and treatment patterns.
         </p>
 
-        <a href="#" target="_blank">VIEW PROJECT →</a>
-      </div>
+        <span class="project-tag">POWER BI</span>
+        <span class="project-tag">DATA</span>
+
+        <a href="#" class="project-link">
+          VIEW PROJECT →
+        </a>
+
+      </article>
 
 
-      <div class="project">
-        <h3>DSA Programs</h3>
+      <article class="project">
+
+        <span class="project-number">04</span>
+
+        <h3>
+          DSA Programs
+        </h3>
 
         <p>
-          Collection of C programming implementations covering sorting,
-          searching, linked lists, stacks, queues, trees and graphs.
+          Collection of C implementations covering
+          sorting, searching, linked lists, stacks,
+          queues, trees and graphs.
         </p>
 
-        <a href="#" target="_blank">GITHUB →</a>
-      </div>
+        <span class="project-tag">C</span>
+        <span class="project-tag">DSA</span>
+
+        <a href="#" class="project-link">
+          VIEW GITHUB →
+        </a>
+
+      </article>
+
 
     </div>
 
   </section>
 
 
-  <!-- EDUCATION -->
+  <!-- =========================
+       EDUCATION
+  ========================== -->
+
   <section class="education">
 
-    <h2 class="section-title">EDUCATION_</h2>
+    <div class="section-label">
+      04 — EDUCATION
+    </div>
+
+    <h2 class="section-title">
+      EDUCATION_
+    </h2>
 
     <div class="education-box">
 
-      <h3>B.Tech Computer Science & Engineering</h3>
+      <h3>
+        B.Tech Computer Science
+        & Engineering
+      </h3>
 
       <p>
-        <strong>Currently Pursuing</strong>
+        Currently Pursuing
       </p>
 
       <p>
-        Focus areas: Programming, Data Structures, Web Development,
+        Focus areas: Programming,
+        Data Structures, Web Development,
         Artificial Intelligence and Machine Learning.
       </p>
 
@@ -442,33 +1050,92 @@
   </section>
 
 
-  <!-- CONTACT -->
+  <!-- =========================
+       CONTACT
+  ========================== -->
+
   <section class="contact" id="contact">
 
-    <h2 class="section-title">CONTACT_</h2>
+    <div class="section-label">
+      05 — SAY HELLO
+    </div>
 
-    <div class="contact-box">
+    <h2 class="section-title">
+      LET'S TALK_
+    </h2>
 
-      <a href="mailto:yourmail@example.com">
-        EMAIL → yourmail@example.com
-      </a>
+    <div class="contact-grid">
 
-      <a href="https://github.com/" target="_blank">
-        GITHUB → @yourusername
-      </a>
+      <div class="contact-intro">
 
-      <a href="https://www.linkedin.com/" target="_blank">
-        LINKEDIN → CONNECT WITH ME
-      </a>
+        <p>
+          Have an idea, project or opportunity?
+          Let's build something interesting together.
+        </p>
+
+        <br>
+
+        <strong>
+          DON'T BE SHY. SAY HI. 👋
+        </strong>
+
+      </div>
+
+
+      <div class="contact-links">
+
+        <a
+          class="contact-link"
+          href="mailto:yourmail@example.com"
+        >
+          ✉ EMAIL
+          <br>
+          yourmail@example.com
+        </a>
+
+
+        <a
+          class="contact-link"
+          href="https://github.com/"
+          target="_blank"
+        >
+          ◈ GITHUB
+          <br>
+          @yourusername
+        </a>
+
+
+        <a
+          class="contact-link"
+          href="https://www.linkedin.com/"
+          target="_blank"
+        >
+          ↗ LINKEDIN
+          <br>
+          CONNECT WITH ME
+        </a>
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
   <footer>
-    © 2026 NIKITHA K. — BUILT WITH HTML & CSS.
+
+    <span>
+      © 2026 NIKITHA K.
+    </span>
+
+    <span>
+      DESIGNED + CODED BY NIKITHA
+    </span>
+
   </footer>
 
 </body>
