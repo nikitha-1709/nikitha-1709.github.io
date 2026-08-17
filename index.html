@@ -4,699 +4,1197 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nikitha K. | Portfolio</title>
+<title>Nikitha K. | Cyber Portfolio</title>
 
 <style>
 
-    /* =========================
-       RESET
-    ========================= */
+/* =====================================================
+   GLOBAL
+===================================================== */
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #08080c;
+    color: #f5f5f5;
+    overflow-x: hidden;
+}
+
+:root {
+
+    --black: #08080c;
+    --dark: #101018;
+    --dark2: #151522;
+
+    --white: #f5f5f5;
+
+    --purple: #8b5cf6;
+    --cyan: #00f5ff;
+    --lime: #b6ff00;
+    --pink: #ff3cac;
+
+    --border: 2px solid rgba(255,255,255,0.85);
+
+    --glass:
+        rgba(255,255,255,0.06);
+
+    --glass-border:
+        rgba(255,255,255,0.18);
+
+    --shadow:
+        8px 8px 0 #8b5cf6;
+}
+
+
+/* =====================================================
+   BACKGROUND EFFECTS
+===================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 50px 50px;
+
+    z-index: -3;
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    background: #8b5cf6;
+
+    filter: blur(180px);
+
+    opacity: 0.15;
+
+    top: -200px;
+    right: -150px;
+
+    pointer-events: none;
+
+    z-index: -2;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 6%;
+
+    background:
+        rgba(8,8,12,0.75);
+
+    backdrop-filter: blur(15px);
+
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom:
+        2px solid rgba(255,255,255,0.2);
+}
+
+
+.logo {
+
+    border: 2px solid white;
+
+    background: var(--lime);
+
+    color: #08080c;
+
+    padding: 7px 13px;
+
+    font-size: 24px;
+
+    font-weight: 1000;
+
+    box-shadow:
+        5px 5px 0 var(--cyan);
+
+}
+
+
+nav ul {
+
+    display: flex;
+
+    gap: 25px;
+
+    list-style: none;
+}
+
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    transition: 0.2s;
+}
+
+
+nav a:hover {
+
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 10px var(--cyan);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 92vh;
+
+    padding:
+        100px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 60px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-bottom:
+        2px solid rgba(255,255,255,0.25);
+}
+
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    filter: blur(180px);
+
+    opacity: 0.12;
+
+    right: 5%;
+
+    top: 10%;
+}
+
+
+.hero-content {
+
+    max-width: 850px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.status {
+
+    display: inline-block;
+
+    padding: 9px 15px;
+
+    background:
+        rgba(182,255,0,0.12);
+
+    border:
+        2px solid var(--lime);
+
+    color: var(--lime);
+
+    font-size: 12px;
+
+    font-weight: 1000;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        5px 5px 0 var(--lime);
+
+    margin-bottom: 30px;
+}
+
+
+.hero h1 {
+
+    font-size:
+        clamp(65px, 11vw, 145px);
+
+    line-height: 0.8;
+
+    letter-spacing: -8px;
+
+    font-weight: 1000;
+
+    text-transform: uppercase;
+
+    color: white;
+
+    text-shadow:
+        7px 7px 0 #000;
+}
+
+
+.hero h1 span {
+
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 25px rgba(0,245,255,0.5),
+        7px 7px 0 #000;
+}
+
+
+.hero-description {
+
+    max-width: 650px;
+
+    margin-top: 35px;
+
+    padding: 22px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    border:
+        2px solid rgba(255,255,255,0.25);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        8px 8px 0 var(--purple);
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    line-height: 1.6;
+}
+
+
+.hero-buttons {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+.btn {
+
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    text-decoration: none;
+
+    color: #08080c;
+
+    background: var(--lime);
+
+    border: 2px solid white;
+
+    font-weight: 1000;
+
+    box-shadow:
+        6px 6px 0 var(--cyan);
+
+    transition: 0.2s;
+}
+
+
+.btn:hover {
+
+    transform:
+        translate(5px,5px);
+
+    box-shadow:
+        2px 2px 0 var(--cyan);
+}
+
+
+.btn-dark {
+
+    background: #08080c;
+
+    color: white;
+
+    border-color: white;
+
+    box-shadow:
+        6px 6px 0 var(--pink);
+}
+
+
+/* =====================================================
+   CYBER OBJECT
+===================================================== */
+
+.cyber-object {
+
+    width: 280px;
+
+    height: 280px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    backdrop-filter:
+        blur(20px);
+
+    border:
+        3px solid var(--cyan);
+
+    box-shadow:
+        15px 15px 0 var(--purple),
+        0 0 40px rgba(0,245,255,0.15);
+
+    transform:
+        rotate(6deg);
+
+    font-size: 90px;
+
+    font-weight: 1000;
+
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 25px var(--cyan);
+
+    animation:
+        float 4s ease-in-out infinite;
+}
+
+
+@keyframes float {
+
+    0%,100% {
+        transform:
+            rotate(6deg)
+            translateY(0);
     }
 
-    html {
-        scroll-behavior: smooth;
+    50% {
+        transform:
+            rotate(-5deg)
+            translateY(-20px);
     }
+}
 
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f7f3eb;
-        color: #171717;
-        overflow-x: hidden;
-    }
 
-    :root {
-        --black: #171717;
-        --cream: #f7f3eb;
-        --white: #ffffff;
-        --yellow: #dfff00;
-        --purple: #9b5cff;
-        --pink: #ff6ec7;
-        --blue: #61e7ff;
-        --green: #70f58a;
-        --border: 3px solid #171717;
-        --shadow: 7px 7px 0 #171717;
-    }
+/* =====================================================
+   SECTIONS
+===================================================== */
 
-    /* =========================
-       NAVBAR
-    ========================= */
+section {
+
+    padding:
+        100px 7%;
+
+    border-bottom:
+        2px solid rgba(255,255,255,0.15);
+}
+
+
+.section-label {
+
+    font-size: 12px;
+
+    color: var(--cyan);
+
+    font-weight: 1000;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+.section-title {
+
+    font-size:
+        clamp(45px,7vw,85px);
+
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    text-transform: uppercase;
+
+    font-weight: 1000;
+
+    margin-bottom: 50px;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about {
+
+    background:
+        linear-gradient(
+            135deg,
+            #08080c,
+            #101018
+        );
+}
+
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    gap: 30px;
+}
+
+
+.glass-card {
+
+    background:
+        var(--glass);
+
+    border:
+        2px solid var(--glass-border);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    padding: 35px;
+
+    box-shadow:
+        var(--shadow);
+}
+
+
+.about-main {
+
+    min-height: 300px;
+
+    border-left:
+        5px solid var(--cyan);
+}
+
+
+.about-main h3 {
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+
+    font-weight: 1000;
+}
+
+
+.about-main p {
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    color: #d0d0d0;
+
+    font-weight: 600;
+}
+
+
+.about-side {
+
+    display: grid;
+
+    gap: 20px;
+}
+
+
+.info-card {
+
+    padding: 25px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        2px solid rgba(255,255,255,0.2);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        6px 6px 0 var(--pink);
+}
+
+
+.info-card:nth-child(2) {
+
+    box-shadow:
+        6px 6px 0 var(--lime);
+}
+
+
+.info-card h3 {
+
+    margin-bottom: 10px;
+
+    color: var(--cyan);
+}
+
+
+.info-card p {
+
+    color: #ccc;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skills {
+
+    background: #050508;
+}
+
+
+.skills .section-title {
+
+    color: var(--lime);
+
+    text-shadow:
+        0 0 20px
+        rgba(182,255,0,0.25);
+}
+
+
+.skills-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+
+    gap: 20px;
+}
+
+
+.skill {
+
+    padding: 30px;
+
+    min-height: 120px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        2px solid rgba(255,255,255,0.25);
+
+    backdrop-filter:
+        blur(15px);
+
+    font-weight: 1000;
+
+    font-size: 18px;
+
+    box-shadow:
+        6px 6px 0 var(--purple);
+
+    transition:
+        0.25s;
+}
+
+
+.skill:nth-child(even) {
+
+    box-shadow:
+        6px 6px 0 var(--cyan);
+}
+
+
+.skill:hover {
+
+    background:
+        rgba(0,245,255,0.12);
+
+    transform:
+        translateY(-7px)
+        rotate(-2deg);
+
+    border-color:
+        var(--cyan);
+
+    color:
+        var(--cyan);
+
+    text-shadow:
+        0 0 10px var(--cyan);
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.projects {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b0b11,
+            #12121c
+        );
+}
+
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 30px;
+}
+
+
+.project {
+
+    position: relative;
+
+    padding: 30px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        2px solid rgba(255,255,255,0.25);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    box-shadow:
+        8px 8px 0 var(--purple);
+
+    transition:
+        0.25s;
+}
+
+
+.project:hover {
+
+    transform:
+        translate(-5px,-5px);
+
+    border-color:
+        var(--cyan);
+
+    box-shadow:
+        13px 13px 0 var(--cyan);
+}
+
+
+.project-number {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 10px;
+
+    font-size: 55px;
+
+    font-weight: 1000;
+
+    color:
+        rgba(255,255,255,0.08);
+}
+
+
+.project h3 {
+
+    font-size: 30px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 15px;
+
+    color: white;
+}
+
+
+.project p {
+
+    color: #c8c8c8;
+
+    line-height: 1.6;
+
+    font-weight: 600;
+
+    margin-bottom: 20px;
+}
+
+
+.tag {
+
+    display: inline-block;
+
+    padding: 7px 11px;
+
+    border:
+        1px solid var(--cyan);
+
+    color:
+        var(--cyan);
+
+    background:
+        rgba(0,245,255,0.06);
+
+    font-size: 10px;
+
+    font-weight: 1000;
+
+    margin-right: 5px;
+}
+
+
+.project a {
+
+    display: block;
+
+    margin-top: 25px;
+
+    color: var(--lime);
+
+    font-weight: 1000;
+
+    text-decoration: none;
+}
+
+
+.project a:hover {
+
+    color: var(--cyan);
+}
+
+
+/* =====================================================
+   TERMINAL
+===================================================== */
+
+.terminal {
+
+    margin-top: 50px;
+
+    background: #050507;
+
+    border:
+        2px solid #444;
+
+    box-shadow:
+        8px 8px 0 var(--lime);
+
+    overflow: hidden;
+}
+
+
+.terminal-top {
+
+    padding: 10px 15px;
+
+    background: #17171d;
+
+    border-bottom:
+        1px solid #444;
+
+    font-size: 12px;
+
+    color: #999;
+}
+
+
+.terminal-body {
+
+    padding: 25px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    color: var(--lime);
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+.terminal-body span {
+
+    color: var(--cyan);
+}
+
+
+/* =====================================================
+   EDUCATION
+===================================================== */
+
+.education {
+
+    background:
+        #0a0a0f;
+}
+
+
+.education-card {
+
+    max-width: 900px;
+
+    padding: 35px;
+
+    background:
+        rgba(139,92,246,0.1);
+
+    border:
+        2px solid var(--purple);
+
+    backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+        8px 8px 0 var(--cyan);
+}
+
+
+.education-card h3 {
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+
+.education-card p {
+
+    color: #ccc;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact {
+
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,60,172,0.15),
+            transparent 30%
+        ),
+        #08080c;
+}
+
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 35px;
+}
+
+
+.contact-text {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #ddd;
+}
+
+
+.contact-text strong {
+
+    color: var(--cyan);
+
+    text-shadow:
+        0 0 10px var(--cyan);
+}
+
+
+.contact-links {
+
+    display: grid;
+
+    gap: 18px;
+}
+
+
+.contact-link {
+
+    display: block;
+
+    padding: 20px;
+
+    color: white;
+
+    text-decoration: none;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        2px solid rgba(255,255,255,0.25);
+
+    backdrop-filter:
+        blur(15px);
+
+    font-weight: 1000;
+
+    box-shadow:
+        6px 6px 0 var(--pink);
+
+    transition:
+        0.2s;
+}
+
+
+.contact-link:hover {
+
+    transform:
+        translate(5px,5px);
+
+    color:
+        var(--lime);
+
+    border-color:
+        var(--lime);
+
+    box-shadow:
+        2px 2px 0 var(--lime);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding:
+        30px 7%;
+
+    background:
+        #030305;
+
+    color:
+        #777;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 800px) {
 
     nav {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction:
+            column;
 
-        padding: 18px 6%;
-
-        background: var(--cream);
-        border-bottom: var(--border);
+        gap:
+            15px;
     }
 
-    .logo {
-        background: var(--yellow);
-        border: var(--border);
-
-        padding: 8px 14px;
-
-        font-size: 24px;
-        font-weight: 1000;
-
-        box-shadow: 5px 5px 0 var(--black);
-    }
 
     nav ul {
-        display: flex;
-        gap: 25px;
-        list-style: none;
+
+        gap:
+            15px;
+
+        flex-wrap:
+            wrap;
+
+        justify-content:
+            center;
     }
 
-    nav a {
-        text-decoration: none;
-        color: var(--black);
-
-        font-weight: 900;
-        font-size: 14px;
-    }
-
-    nav a:hover {
-        color: var(--purple);
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
 
     .hero {
-        min-height: 90vh;
 
-        padding: 80px 7%;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        gap: 50px;
-
-        background: var(--purple);
-
-        border-bottom: var(--border);
-
-        position: relative;
+        padding:
+            80px 6%;
     }
 
-    .hero-content {
-        max-width: 850px;
-    }
-
-    .badge {
-        display: inline-block;
-
-        background: var(--yellow);
-
-        border: var(--border);
-
-        padding: 9px 15px;
-
-        font-size: 13px;
-        font-weight: 1000;
-
-        box-shadow: 5px 5px 0 var(--black);
-
-        margin-bottom: 30px;
-    }
 
     .hero h1 {
-        font-size: clamp(65px, 11vw, 140px);
 
-        line-height: 0.82;
+        font-size:
+            70px;
 
-        letter-spacing: -8px;
-
-        font-weight: 1000;
-
-        text-transform: uppercase;
-
-        color: var(--white);
-
-        text-shadow: 8px 8px 0 var(--black);
-    }
-
-    .hero h1 span {
-        color: var(--yellow);
-    }
-
-    .hero-text {
-        margin-top: 35px;
-
-        max-width: 650px;
-
-        padding: 20px;
-
-        background: var(--white);
-
-        border: var(--border);
-
-        box-shadow: var(--shadow);
-
-        font-size: 20px;
-
-        font-weight: 700;
-    }
-
-    .buttons {
-        display: flex;
-
-        gap: 20px;
-
-        margin-top: 35px;
-
-        flex-wrap: wrap;
-    }
-
-    .btn {
-        display: inline-block;
-
-        text-decoration: none;
-
-        color: var(--black);
-
-        background: var(--yellow);
-
-        border: var(--border);
-
-        padding: 15px 24px;
-
-        font-weight: 1000;
-
-        box-shadow: var(--shadow);
-
-        transition: 0.2s;
-    }
-
-    .btn:hover {
-        transform: translate(5px, 5px);
-        box-shadow: 2px 2px 0 var(--black);
-    }
-
-    .btn-dark {
-        background: var(--black);
-        color: var(--white);
+        letter-spacing:
+            -4px;
     }
 
 
-    /* =========================
-       DECORATION
-    ========================= */
+    .cyber-object {
 
-    .shape {
-        width: 280px;
-        height: 280px;
-
-        background: var(--yellow);
-
-        border: 5px solid var(--black);
-
-        box-shadow: 15px 15px 0 var(--black);
-
-        transform: rotate(7deg);
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        font-size: 100px;
-        font-weight: 1000;
-
-        animation: floating 4s ease-in-out infinite;
-    }
-
-    @keyframes floating {
-
-        0%,100% {
-            transform: rotate(7deg) translateY(0);
-        }
-
-        50% {
-            transform: rotate(-5deg) translateY(-20px);
-        }
-
+        display:
+            none;
     }
 
 
-    /* =========================
-       GENERAL SECTIONS
-    ========================= */
-
-    section {
-        padding: 90px 7%;
-
-        border-bottom: var(--border);
-    }
-
-    .label {
-        font-size: 13px;
-
-        font-weight: 1000;
-
-        margin-bottom: 15px;
-
-        letter-spacing: 2px;
-    }
-
-    .title {
-        font-size: clamp(45px, 7vw, 80px);
-
-        line-height: 0.9;
-
-        letter-spacing: -5px;
-
-        font-weight: 1000;
-
-        margin-bottom: 50px;
-
-        text-transform: uppercase;
-    }
-
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about {
-        background: var(--cream);
-    }
-
-    .about-grid {
-        display: grid;
-
-        grid-template-columns: 1.5fr 1fr;
-
-        gap: 30px;
-    }
-
-    .about-main {
-        background: var(--blue);
-
-        border: var(--border);
-
-        padding: 35px;
-
-        box-shadow: var(--shadow);
-
-        border-radius: 15px;
-    }
-
-    .about-main h3 {
-        font-size: 32px;
-
-        margin-bottom: 20px;
-
-        font-weight: 1000;
-    }
-
-    .about-main p {
-        font-size: 18px;
-
-        font-weight: 600;
-
-        line-height: 1.6;
-    }
-
-    .about-side {
-        display: grid;
-
-        gap: 20px;
-    }
-
-    .info-card {
-        background: var(--white);
-
-        border: var(--border);
-
-        padding: 25px;
-
-        box-shadow: var(--shadow);
-
-        border-radius: 15px;
-    }
-
-    .info-card:nth-child(2) {
-        background: var(--pink);
-    }
-
-    .info-card h3 {
-        font-size: 22px;
-
-        margin-bottom: 10px;
-
-        font-weight: 1000;
-    }
-
-    .info-card p {
-        font-weight: 600;
-    }
-
-
-    /* =========================
-       SKILLS
-    ========================= */
-
-    .skills {
-        background: var(--black);
-
-        color: var(--white);
-    }
-
-    .skills .title {
-        color: var(--yellow);
-    }
-
-    .skills-grid {
-        display: grid;
+    .about-grid,
+    .projects-grid,
+    .contact-grid {
 
         grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
-
-        gap: 20px;
-    }
-
-    .skill {
-        background: var(--cream);
-
-        color: var(--black);
-
-        border: var(--border);
-
-        padding: 25px;
-
-        min-height: 120px;
-
-        display: flex;
-
-        justify-content: center;
-
-        align-items: center;
-
-        text-align: center;
-
-        font-size: 20px;
-
-        font-weight: 1000;
-
-        box-shadow: 6px 6px 0 var(--purple);
-
-        transition: 0.2s;
-
-        border-radius: 12px;
-    }
-
-    .skill:hover {
-        transform: translateY(-7px) rotate(-2deg);
-
-        background: var(--yellow);
+            1fr;
     }
 
 
-    /* =========================
-       PROJECTS
-    ========================= */
+    section {
 
-    .projects {
-        background: var(--yellow);
+        padding:
+            70px 6%;
     }
 
-    .projects-grid {
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 30px;
-    }
-
-    .project {
-        background: var(--white);
-
-        border: var(--border);
-
-        padding: 30px;
-
-        box-shadow: 9px 9px 0 var(--black);
-
-        border-radius: 15px;
-
-        transition: 0.25s;
-
-        position: relative;
-    }
-
-    .project:hover {
-        transform: translate(-5px, -5px);
-
-        box-shadow: 14px 14px 0 var(--black);
-    }
-
-    .project-number {
-        position: absolute;
-
-        top: 15px;
-        right: 20px;
-
-        font-size: 45px;
-
-        font-weight: 1000;
-
-        opacity: 0.12;
-    }
-
-    .project h3 {
-        font-size: 32px;
-
-        text-transform: uppercase;
-
-        margin-bottom: 15px;
-    }
-
-    .project p {
-        font-size: 17px;
-
-        line-height: 1.6;
-
-        font-weight: 600;
-
-        margin-bottom: 20px;
-    }
-
-    .tag {
-        display: inline-block;
-
-        padding: 7px 12px;
-
-        background: var(--purple);
-
-        color: white;
-
-        border: 2px solid var(--black);
-
-        font-size: 11px;
-
-        font-weight: 1000;
-
-        margin-right: 5px;
-    }
-
-    .project a {
-        display: block;
-
-        margin-top: 25px;
-
-        color: var(--black);
-
-        font-weight: 1000;
-    }
-
-
-    /* =========================
-       EDUCATION
-    ========================= */
-
-    .education {
-        background: var(--green);
-    }
-
-    .education-card {
-        max-width: 900px;
-
-        background: var(--white);
-
-        border: var(--border);
-
-        padding: 35px;
-
-        box-shadow: var(--shadow);
-
-        border-radius: 15px;
-    }
-
-    .education-card h3 {
-        font-size: 32px;
-
-        margin-bottom: 15px;
-
-        text-transform: uppercase;
-    }
-
-    .education-card p {
-        font-size: 18px;
-
-        font-weight: 600;
-
-        margin-bottom: 10px;
-    }
-
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact {
-        background: var(--pink);
-    }
-
-    .contact-grid {
-        display: grid;
-
-        grid-template-columns: 1fr 1fr;
-
-        gap: 35px;
-    }
-
-    .contact-text {
-        font-size: 22px;
-
-        font-weight: 700;
-
-        max-width: 500px;
-    }
-
-    .contact-links {
-        display: grid;
-
-        gap: 18px;
-    }
-
-    .contact-link {
-        display: block;
-
-        background: var(--white);
-
-        color: var(--black);
-
-        text-decoration: none;
-
-        border: var(--border);
-
-        padding: 20px;
-
-        font-weight: 1000;
-
-        box-shadow: 6px 6px 0 var(--black);
-
-        border-radius: 10px;
-
-        transition: 0.2s;
-    }
-
-    .contact-link:hover {
-        transform: translate(5px, 5px);
-
-        box-shadow: 2px 2px 0 var(--black);
-
-        background: var(--yellow);
-    }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
 
     footer {
-        background: var(--black);
 
-        color: var(--white);
+        flex-direction:
+            column;
 
-        padding: 30px 7%;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        font-size: 13px;
-
-        font-weight: 800;
+        gap:
+            10px;
     }
 
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 800px) {
-
-        nav {
-            flex-direction: column;
-
-            gap: 15px;
-        }
-
-        nav ul {
-            gap: 15px;
-
-            flex-wrap: wrap;
-
-            justify-content: center;
-        }
-
-        .hero {
-            padding: 70px 6%;
-        }
-
-        .hero h1 {
-            font-size: 70px;
-
-            letter-spacing: -4px;
-        }
-
-        .shape {
-            display: none;
-        }
-
-        .about-grid,
-        .projects-grid,
-        .contact-grid {
-            grid-template-columns: 1fr;
-        }
-
-        section {
-            padding: 70px 6%;
-        }
-
-        footer {
-            flex-direction: column;
-
-            gap: 10px;
-        }
-
-    }
+}
 
 </style>
 </head>
@@ -705,9 +1203,9 @@
 <body>
 
 
-<!-- =========================
+<!-- =====================================================
      NAVIGATION
-========================= -->
+===================================================== -->
 
 <nav>
 
@@ -738,39 +1236,53 @@
 </nav>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <header class="hero">
 
     <div class="hero-content">
 
-        <span class="badge">
-            ✦ BTECH CSE STUDENT
-        </span>
+        <div class="status">
+            ● SYSTEM ONLINE / CSE STUDENT
+        </div>
+
 
         <h1>
+
             NIKITHA<br>
+
             <span>K.</span>
+
         </h1>
 
-        <div class="hero-text">
 
-            I build websites, explore AI,
-            experiment with technology and
-            turn ideas into real projects.
+        <div class="hero-description">
+
+            I build digital experiences,
+            explore artificial intelligence
+            and turn ideas into real-world
+            projects.
 
         </div>
 
-        <div class="buttons">
 
-            <a href="#projects" class="btn">
-                VIEW MY WORK →
+        <div class="hero-buttons">
+
+            <a
+                href="#projects"
+                class="btn"
+            >
+                VIEW PROJECTS →
             </a>
 
-            <a href="#contact" class="btn btn-dark">
-                CONTACT ME ↗
+
+            <a
+                href="#contact"
+                class="btn btn-dark"
+            >
+                CONNECT ↗
             </a>
 
         </div>
@@ -778,57 +1290,69 @@
     </div>
 
 
-    <div class="shape">
+    <div class="cyber-object">
+
         &lt;/&gt;
+
     </div>
 
 </header>
 
 
-<!-- =========================
+<!-- =====================================================
      ABOUT
-========================= -->
+===================================================== -->
 
 <section class="about" id="about">
 
-    <div class="label">
-        01 / ABOUT
+    <div class="section-label">
+        01 / IDENTITY
     </div>
 
-    <h2 class="title">
-        WHO AM I?
+    <h2 class="section-title">
+        ABOUT ME_
     </h2>
 
 
     <div class="about-grid">
 
-        <div class="about-main">
+
+        <div class="glass-card about-main">
 
             <h3>
                 CURIOUS MIND.<br>
-                CREATIVE BUILDER.
+                DIGITAL BUILDER.
             </h3>
 
+
             <p>
+
                 I'm Nikitha, a B.Tech Computer Science
-                and Engineering student passionate about
-                technology, programming, web development
-                and artificial intelligence.
+                and Engineering student interested in
+                programming, web development,
+                artificial intelligence and creative
+                technology.
+
             </p>
+
 
             <br>
 
+
             <p>
-                I enjoy learning by building projects,
-                experimenting with new technologies and
-                transforming ideas into useful digital
-                experiences.
+
+                I enjoy learning by building projects
+                and experimenting with different
+                technologies to turn ideas into useful
+                digital experiences.
+
             </p>
 
         </div>
 
 
         <div class="about-side">
+
 
             <div class="info-card">
 
@@ -847,15 +1371,16 @@
             <div class="info-card">
 
                 <h3>
-                    ⚡ CURRENTLY LEARNING
+                    ⚡ CURRENT FOCUS
                 </h3>
 
                 <p>
                     C • Python • DSA • Web Development
-                    • AI / ML
+                    • AI
                 </p>
 
             </div>
+
 
         </div>
 
@@ -864,77 +1389,98 @@
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SKILLS
-========================= -->
+===================================================== -->
 
 <section class="skills" id="skills">
 
-    <div class="label">
-        02 / SKILLS
+    <div class="section-label">
+        02 / TECH STACK
     </div>
 
-    <h2 class="title">
-        WHAT I DO
+    <h2 class="section-title">
+        SKILLS_
     </h2>
 
 
     <div class="skills-grid">
 
+
         <div class="skill">
             C PROGRAMMING
         </div>
+
 
         <div class="skill">
             PYTHON
         </div>
 
+
         <div class="skill">
-            HTML & CSS
+            HTML / CSS
         </div>
+
 
         <div class="skill">
             JAVASCRIPT
         </div>
 
+
         <div class="skill">
             DATA STRUCTURES
         </div>
+
 
         <div class="skill">
             GITHUB
         </div>
 
+
         <div class="skill">
             AI / ML
         </div>
 
+
+        <div class="skill">
+            POWER BI
+        </div>
+
+
+        <div class="skill">
+            N8N
+        </div>
+
+
         <div class="skill">
             UI / UX
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PROJECTS
-========================= -->
+===================================================== -->
 
 <section class="projects" id="projects">
 
-    <div class="label">
-        03 / PROJECTS
+    <div class="section-label">
+        03 / DEPLOYED PROJECTS
     </div>
 
-    <h2 class="title">
-        THINGS I'VE BUILT
+    <h2 class="section-title">
+        PROJECTS_
     </h2>
 
 
     <div class="projects-grid">
 
+
+        <!-- PROJECT 01 -->
 
         <article class="project">
 
@@ -942,16 +1488,21 @@
                 01
             </span>
 
+
             <h3>
                 KissanMithra
             </h3>
 
+
             <p>
+
                 AI-powered agriculture platform designed
                 to help farmers with crop intelligence,
                 disease detection, weather information,
                 irrigation and market insights.
+
             </p>
+
 
             <span class="tag">
                 AI
@@ -965,12 +1516,15 @@
                 WEB
             </span>
 
+
             <a href="#">
-                VIEW PROJECT →
+                ACCESS PROJECT →
             </a>
 
         </article>
 
+
+        <!-- PROJECT 02 -->
 
         <article class="project">
 
@@ -978,15 +1532,20 @@
                 02
             </span>
 
+
             <h3>
                 Healthcare Website
             </h3>
 
+
             <p>
-                Responsive healthcare website designed
+
+                Responsive healthcare website built
                 using HTML, CSS and JavaScript with
-                a simple and accessible interface.
+                a modern user interface.
+
             </p>
+
 
             <span class="tag">
                 HTML
@@ -1000,12 +1559,15 @@
                 JS
             </span>
 
+
             <a href="#">
-                VIEW PROJECT →
+                ACCESS PROJECT →
             </a>
 
         </article>
 
+
+        <!-- PROJECT 03 -->
 
         <article class="project">
 
@@ -1013,15 +1575,20 @@
                 03
             </span>
 
+
             <h3>
                 Power BI Dashboard
             </h3>
 
+
             <p>
-                Interactive dashboard for analyzing
-                mental health workplace survey data
-                and treatment patterns.
+
+                Interactive dashboard analyzing
+                workplace mental health survey data
+                using data visualization.
+
             </p>
+
 
             <span class="tag">
                 POWER BI
@@ -1031,12 +1598,15 @@
                 DATA
             </span>
 
+
             <a href="#">
-                VIEW PROJECT →
+                ACCESS PROJECT →
             </a>
 
         </article>
 
+
+        <!-- PROJECT 04 -->
 
         <article class="project">
 
@@ -1044,15 +1614,20 @@
                 04
             </span>
 
+
             <h3>
                 DSA Programs
             </h3>
 
+
             <p>
-                C programming collection covering
+
+                Collection of C implementations covering
                 sorting, searching, linked lists,
                 stacks, queues, trees and graphs.
+
             </p>
+
 
             <span class="tag">
                 C
@@ -1061,6 +1636,7 @@
             <span class="tag">
                 DSA
             </span>
+
 
             <a href="#">
                 VIEW GITHUB →
@@ -1071,21 +1647,63 @@
 
     </div>
 
+
+    <!-- TERMINAL -->
+
+    <div class="terminal">
+
+        <div class="terminal-top">
+            nikitha@portfolio: ~
+        </div>
+
+
+        <div class="terminal-body">
+
+            <div>
+                <span>nikitha@portfolio</span>:~$ whoami
+            </div>
+
+            <div>
+                computer_science_student
+            </div>
+
+            <br>
+
+            <div>
+                <span>nikitha@portfolio</span>:~$ status
+            </div>
+
+            <div>
+                building_projects...
+            </div>
+
+            <div>
+                learning_every_day...
+            </div>
+
+            <div>
+                system_status: ONLINE ✓
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      EDUCATION
-========================= -->
+===================================================== -->
 
 <section class="education">
 
-    <div class="label">
+    <div class="section-label">
         04 / EDUCATION
     </div>
 
-    <h2 class="title">
-        EDUCATION
+    <h2 class="section-title">
+        EDUCATION_
     </h2>
 
 
@@ -1096,14 +1714,19 @@
             & Engineering
         </h3>
 
+
         <p>
             Currently Pursuing
         </p>
 
+
         <p>
-            Focus areas: Programming, Data Structures,
+
+            Focus areas:
+            Programming, Data Structures,
             Web Development, Artificial Intelligence
             and Machine Learning.
+
         </p>
 
     </div>
@@ -1111,34 +1734,39 @@
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      CONTACT
-========================= -->
+===================================================== -->
 
 <section class="contact" id="contact">
 
-    <div class="label">
-        05 / CONTACT
+    <div class="section-label">
+        05 / COMMUNICATION
     </div>
 
-    <h2 class="title">
-        LET'S CONNECT
+    <h2 class="section-title">
+        LET'S CONNECT_
     </h2>
 
 
     <div class="contact-grid">
 
+
         <div class="contact-text">
 
             <p>
+
                 Have an interesting project,
                 collaboration or opportunity?
+
             </p>
+
 
             <br>
 
+
             <strong>
-                LET'S BUILD SOMETHING COOL. ✦
+                LET'S BUILD SOMETHING COOL. ⚡
             </strong>
 
         </div>
@@ -1146,13 +1774,18 @@
 
         <div class="contact-links">
 
+
             <a
                 href="mailto:yourmail@example.com"
                 class="contact-link"
             >
+
                 ✉ EMAIL
+
                 <br>
+
                 yourmail@example.com
+
             </a>
 
 
@@ -1161,21 +1794,30 @@
                 target="_blank"
                 class="contact-link"
             >
+
                 ◈ GITHUB
+
                 <br>
+
                 @yourusername
+
             </a>
 
 
             <a
-                href="https://www.linkedin.com/"
+                href="https://linkedin.com/"
                 target="_blank"
                 class="contact-link"
             >
+
                 ↗ LINKEDIN
+
                 <br>
+
                 CONNECT WITH ME
+
             </a>
+
 
         </div>
 
@@ -1184,9 +1826,9 @@
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -1194,14 +1836,15 @@
         © 2026 NIKITHA K.
     </span>
 
+
     <span>
-        BUILT WITH HTML + CSS
+        CYBER BRUTALISM × GLASS
     </span>
 
 </footer>
 
 
 </body>
-</html> 
+</html>
 
         
